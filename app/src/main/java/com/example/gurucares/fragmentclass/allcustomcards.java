@@ -1,4 +1,4 @@
-package com.example.gurucares;
+package com.example.gurucares.fragmentclass;
 
 import android.os.Bundle;
 
@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.gurucares.R;
+import com.example.gurucares.customadapters.allcustomcards_custom_adapter;
+import com.example.gurucares.modelclass.subject_model;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 

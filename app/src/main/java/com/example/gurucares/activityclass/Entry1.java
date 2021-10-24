@@ -1,4 +1,4 @@
-package com.example.gurucares;
+package com.example.gurucares.activityclass;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.gurucares.R;
 
 public class Entry1 extends AppCompatActivity {
 

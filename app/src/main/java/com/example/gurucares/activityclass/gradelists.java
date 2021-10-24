@@ -1,7 +1,6 @@
-package com.example.gurucares;
+package com.example.gurucares.activityclass;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +10,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.gurucares.R;
+import com.example.gurucares.customadapters.gradelist_customadapter;
+import com.example.gurucares.modelclass.grade_model;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 

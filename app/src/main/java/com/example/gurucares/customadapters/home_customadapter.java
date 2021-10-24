@@ -1,4 +1,4 @@
-package com.example.gurucares;
+package com.example.gurucares.customadapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,10 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.gurucares.R;
+import com.example.gurucares.viewholder.home_viewholder;
+import com.example.gurucares.modelclass.model;
 
 import java.util.ArrayList;
 

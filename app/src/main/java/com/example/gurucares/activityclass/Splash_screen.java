@@ -1,13 +1,12 @@
-package com.example.gurucares;
+package com.example.gurucares.activityclass;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.gurucares.R;
 
 public class Splash_screen extends AppCompatActivity {
 
@@ -24,7 +23,7 @@ public class Splash_screen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intents=new Intent(Splash_screen.this,Entry1.class);
+                Intent intents=new Intent(Splash_screen.this, Entry1.class);
                 startActivity(intents);
                 finish();
             }

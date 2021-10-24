@@ -1,9 +1,9 @@
-package com.example.gurucares;
+package com.example.gurucares.modelclass;
 
 public class grade_model {
 
-    String gradename;
-    String sections;
+    public String gradename;
+    public String sections;
 
     public grade_model()
     {
@@ -38,4 +38,6 @@ public class grade_model {
     public void setGradename(String gradename) {
         this.gradename = gradename;
     }
+
+
 }

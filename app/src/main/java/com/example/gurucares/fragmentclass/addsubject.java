@@ -1,4 +1,4 @@
-package com.example.gurucares;
+package com.example.gurucares.fragmentclass;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,6 +16,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.gurucares.R;
+import com.example.gurucares.modelclass.student_info_model;
+import com.example.gurucares.modelclass.subject_model;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

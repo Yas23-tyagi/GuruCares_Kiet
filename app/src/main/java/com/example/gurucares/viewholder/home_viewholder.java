@@ -1,4 +1,4 @@
-package com.example.gurucares;
+package com.example.gurucares.viewholder;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -7,12 +7,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.gurucares.R;
+
 public class home_viewholder extends RecyclerView.ViewHolder {
 
-    ImageView subjectimage;
-    TextView subjectname;
-    TextView facultyname;
-    TextView enrollbtn;
+    public ImageView subjectimage;
+    public TextView subjectname;
+    public TextView facultyname;
+    public TextView enrollbtn;
 
 
 

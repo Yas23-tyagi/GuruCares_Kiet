@@ -1,22 +1,24 @@
-package com.example.gurucares;
+package com.example.gurucares.fragmentclass;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.gurucares.R;
+import com.example.gurucares.customadapters.home_customadapter;
+import com.example.gurucares.customadapters.home_firebasecustomadapter;
+import com.example.gurucares.modelclass.model;
+import com.example.gurucares.modelclass.student_info_model;
+import com.example.gurucares.modelclass.subject_model;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

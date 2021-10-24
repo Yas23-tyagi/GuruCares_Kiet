@@ -1,4 +1,4 @@
-package com.example.gurucares;
+package com.example.gurucares.modelclass;
 
 public class section_model {
     public String sectionname;

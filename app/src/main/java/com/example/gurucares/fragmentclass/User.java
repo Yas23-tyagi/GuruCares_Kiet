@@ -1,4 +1,4 @@
-package com.example.gurucares;
+package com.example.gurucares.fragmentclass;
 
 import android.os.Bundle;
 
@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.gurucares.R;
+import com.example.gurucares.modelclass.student_info_model;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

@@ -1,6 +1,5 @@
-package com.example.gurucares;
+package com.example.gurucares.fragmentclass;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -18,6 +17,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.gurucares.R;
+import com.example.gurucares.customadapters.chapter_custom_adapter;
+import com.example.gurucares.modelclass.chapter_model;
+import com.example.gurucares.modelclass.subject_model;
+import com.example.gurucares.customadapters.subjectname_custom_adapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

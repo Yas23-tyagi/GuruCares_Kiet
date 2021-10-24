@@ -13,18 +13,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GuruCares">
-        <activity android:name=".gradelists"></activity>
-        <activity android:name=".login" />
-        <activity android:name=".Entry2" />
-        <activity android:name=".Entry1" />
-        <activity android:name=".Splash_screen">
+        <activity android:name=".activityclass.gradelists">
+
+        </activity>
+        <activity android:name=".activityclass.login" />
+        <activity android:name=".activityclass.Entry2" />
+        <activity android:name=".activityclass.Entry1" />
+        <activity android:name=".activityclass.Splash_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activityclass.MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
