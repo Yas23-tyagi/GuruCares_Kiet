@@ -30,7 +30,7 @@ public class subjectname_custom_adapter extends FirebaseRecyclerAdapter<subject_
      * @param options
      */
 
-
+    public static String previous = "";
     private String schoolname, studentcode , gradecode, sectioncode;
     public subjectname_custom_adapter(@NonNull FirebaseRecyclerOptions<subject_model> options, String color, String schoolname , String studentcode , String gradecode, String sectioncode) {
         super(options);
@@ -41,7 +41,7 @@ public class subjectname_custom_adapter extends FirebaseRecyclerAdapter<subject_
         this.sectioncode = sectioncode;
     }
 
-    public static String previous = "Biology";
+
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull subject_model model) {

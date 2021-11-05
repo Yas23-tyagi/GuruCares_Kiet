@@ -188,7 +188,7 @@ public class addchapter extends Fragment {
                     pd.setTitle("File Uploading....!!!");
                     pd.show();
 
-                    StorageReference reference = storagereference.child("uploads/" + System.currentTimeMillis() + " .pdf");
+                    StorageReference reference = storagereference.child(System.currentTimeMillis() + " .pdf");
                     reference.putFile(filepath)
                             .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                 @Override

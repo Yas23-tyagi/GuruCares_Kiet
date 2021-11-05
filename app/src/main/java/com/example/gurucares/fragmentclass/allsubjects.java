@@ -66,6 +66,8 @@ public class allsubjects extends Fragment {
      * @return A new instance of fragment allsubjects.
      */
     // TODO: Rename and change types and number of parameters
+
+
     public static allsubjects newInstance(String param1, String param2) {
         allsubjects fragment = new allsubjects();
         Bundle args = new Bundle();
