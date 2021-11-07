@@ -1,5 +1,6 @@
 package com.example.gurucares.fragmentclass;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -13,6 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gurucares.R;
+import com.example.gurucares.activityclass.DashboardActivity;
+import com.example.gurucares.modelclass.QuizModal;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +25,7 @@ import com.example.gurucares.R;
  * create an instance of this fragment.
  */
 public class add_task extends Fragment {
+    public static ArrayList<QuizModal> quizModals;
 
 
     public int quiz,assign= 0;
@@ -108,18 +114,25 @@ public class add_task extends Fragment {
 
                 if(quiz==1)
                 {
-                    //tejash
+                    Intent intent = new Intent(getActivity(), DashboardActivity.class);
+                    startActivity(intent);
+                    quizModals = new ArrayList<>();
+                    quizModals.add(new QuizModal("Samsung is a company of ?","South Korea","Brazil","USA","China","South Korea"));
+                    quizModals.add(new QuizModal("Full form of API ?","Application Programming Implementation","Application Programming Interface","Automatic Programming Implementation","Application Processing Interface","Application Programming Interface"));
+                    quizModals.add(new QuizModal("Types Of Layouts in Android Studio ?","Relative Layout","Linear Layout","Constraint Layout","All of the above","All of the above"));
+                    quizModals.add(new QuizModal("Virtual Machine used for Android OS ?","JVM","Dalvik Virtual Machine","Simple Virtual Machine","None of the above","Dalvik Virtual Machine"));
+                    quizModals.add(new QuizModal("Android is Licensed under ?","OSS","Sourceforge","Apache/MIT","None of the above","Sourceforge"));
+
                 }
+
                 else if(assign==1)
                 {
-
+                    Toast.makeText(getContext(), "All Assignments", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                     Toast.makeText(getContext(),"Select atleast one option", Toast.LENGTH_SHORT).show();
                 }
-
-
 
             }
         });
