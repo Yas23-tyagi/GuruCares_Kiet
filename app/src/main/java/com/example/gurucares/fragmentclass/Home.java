@@ -111,7 +111,7 @@ public class Home extends Fragment {
         String gradecode = username.substring(3,5);
         String sectioncode = username.substring(5,7);
 
-
+        ImageView addtask = v.findViewById(R.id.addtask);
         ImageView addsubject = v.findViewById(R.id.addsubject);
         TextView header = v.findViewById(R.id.header);
         TextView headerbutton  = v.findViewById(R.id.headerbutton);
@@ -123,7 +123,7 @@ public class Home extends Fragment {
         {
 
             addsubject.setVisibility(View.GONE);
-
+            addtask.setVisibility(View.GONE);
 
             FirebaseDatabase db = FirebaseDatabase.getInstance();
             DatabaseReference reference = db.getReference().child("schools").child(schoolname).child(studentcode).child(gradecode).child(sectioncode).child(userid);
@@ -224,6 +224,22 @@ public class Home extends Fragment {
                 }
             });
 
+
+            addtask.setVisibility(View.VISIBLE);
+            addtask.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+
+                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                    Fragment myFragment = new add_task();
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment, myFragment).addToBackStack(null).commit();
+
+
+
+                }
+            });
 
 
             addsubject.setVisibility(View.VISIBLE);

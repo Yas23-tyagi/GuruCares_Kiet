@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.gurucares.R;
 import com.example.gurucares.modelclass.chapter_model;
+import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -188,13 +189,16 @@ public class addchapter extends Fragment {
                     pd.setTitle("File Uploading....!!!");
                     pd.show();
 
-                    StorageReference reference = storagereference.child(System.currentTimeMillis() + " .pdf");
+                    //StorageReference reference;
+                    StorageReference reference = storagereference.child("uploads/");
                     reference.putFile(filepath)
                             .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                 @Override
                                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                                    reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+
+                                    Toast.makeText(getContext(), "Uploaded", Toast.LENGTH_SHORT).show();
+                                   /* reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
 
@@ -210,7 +214,7 @@ public class addchapter extends Fragment {
 
 
                                         }
-                                    });
+                                    });*/
 
 
 
@@ -231,47 +235,8 @@ public class addchapter extends Fragment {
 
 
                 }
-                //Putting pdf file on storage of firebase
-                /*StorageReference reference = storagereference.child("uploads/" + System.currentTimeMillis() + " .pdf");
-                reference.putFile(filepath)
-                        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                                reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                    @Override
-                                    public void onSuccess(Uri uri) {
-
-                                        chapter_model model = new chapter_model(chaptertitle.getText().toString(), chapterdescription.getText().toString(), uri.toString());
-                                        FirebaseDatabase db = FirebaseDatabase.getInstance();
-                                        databaseReference = db.getReference().child("schools").child(schoolname).child("100").child(gradecode).child("subjects").child("subjectname").child("chapters");
-                                        databaseReference.child("chapter3").setValue(model);
-
-                                        pdfpic.setVisibility(View.GONE);
-                                        browsepic.setVisibility(View.VISIBLE);
-                                        browsebtn.setVisibility(View.VISIBLE);
-                                        removepdfbtn.setVisibility(View.GONE);
 
 
-                                    }
-                                });
-
-
-
-                            }
-                        })
-                        .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-
-                                float percent=(100*snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
-                                pd.setMessage("Uploaded :"+(int)percent+"%");
-
-
-
-                            }
-                        });
-*/
 
 
                 
