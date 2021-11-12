@@ -18,6 +18,8 @@
         <activity android:name=".activityclass.login" />
         <activity android:name=".activityclass.Entry2" />
         <activity android:name=".activityclass.Entry1" />
+        <activity android:name=".timeTable.MainActivityCalendar"  android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".timeTable.EventEditActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".activityclass.Splash_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
