@@ -17,7 +17,8 @@ import com.google.android.material.progressindicator.LinearProgressIndicator;
 import java.util.Collections;
 import java.util.List;
 
-import static com.example.gurucares.fragmentclass.add_task.quizModals;
+import static com.example.gurucares.fragmentclass.quiz_info.quizModals;
+//import static com.example.gurucares.fragmentclass..quizModals;
 
 public class DashboardActivity extends AppCompatActivity {
     private TextView questions, textbtnA, textbtnB, textbtnC, textbtnD;

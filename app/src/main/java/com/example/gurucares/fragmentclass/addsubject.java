@@ -152,10 +152,6 @@ public class addsubject extends Fragment {
                 reference.child(titlename).setValue(model);
 
 
-
-
-
-
             }
         });
 

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GuruCares">
-        <activity android:name=".activityclass.FinalResult"></activity>
+        <activity android:name=".activityclass.Questions_n_Answers"></activity>
+        <activity android:name=".activityclass.FinalResult" />
         <activity android:name=".activityclass.DashboardActivity" />
         <activity android:name=".activityclass.gradelists" />
         <activity android:name=".activityclass.login" />
