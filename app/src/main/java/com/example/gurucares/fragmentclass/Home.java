@@ -16,9 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.gurucares.R;
 import com.example.gurucares.customadapters.home_customadapter;
 import com.example.gurucares.customadapters.home_firebasecustomadapter;
+import com.example.gurucares.customadapters.task_custom_adapter;
 import com.example.gurucares.modelclass.model;
 import com.example.gurucares.modelclass.student_info_model;
 import com.example.gurucares.modelclass.subject_model;
+import com.example.gurucares.modelclass.task_model;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -46,9 +48,10 @@ public class Home extends Fragment {
     private String mParam2;
     public RecyclerView subject_recyclerview;
     public RecyclerView task_recyclerview;
-    public home_customadapter task_adapter;
+   // public home_customadapter task_adapter;
     //public home_customadapter ad;
     public home_firebasecustomadapter firebase_subject_adapter;
+    public task_custom_adapter task_adapter;
 
 
 
@@ -164,10 +167,22 @@ public class Home extends Fragment {
 
 
             //Linking Task Recycler view with Recylerview object and setting up its layout manager and adapter
-            task_recyclerview = (RecyclerView) v.findViewById(R.id.task_recycle);
+           /* task_recyclerview = (RecyclerView) v.findViewById(R.id.task_recycle);
             task_recyclerview.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
             task_adapter = new home_customadapter(dataque_task(), getContext());
+            task_recyclerview.setAdapter(task_adapter);*/
+
+            task_recyclerview = (RecyclerView) v.findViewById(R.id.task_recycle);
+            task_recyclerview.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
+
+            FirebaseRecyclerOptions<task_model> task_options=
+                    new FirebaseRecyclerOptions.Builder<task_model>()
+                            .setQuery(FirebaseDatabase.getInstance().getReference().child("schools").child(schoolname).child("100").child(gradecode).child("tasks"), task_model.class)
+                            .build();
+
+            task_adapter =new task_custom_adapter(task_options, getContext());
             task_recyclerview.setAdapter(task_adapter);
+
 
 
 
@@ -175,9 +190,6 @@ public class Home extends Fragment {
             //Linking Subject Recycler with firebase adapter and setting out its layout manager
             subject_recyclerview = (RecyclerView) v.findViewById(R.id.subject_recycle);
             subject_recyclerview.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
-
-            //ad = new home_customadapter(dataque(), getContext());
-            //rcv.setAdapter(ad);
 
             //Used specifiaclly for firebase custom adapters of recycle views
             FirebaseRecyclerOptions<subject_model> options=
@@ -331,9 +343,20 @@ public class Home extends Fragment {
 
 
             //Linking Task Recycler view with Recylerview object and setting up its layout manager and adapter
-            task_recyclerview = (RecyclerView) v.findViewById(R.id.task_recycle);
+            /*task_recyclerview = (RecyclerView) v.findViewById(R.id.task_recycle);
             task_recyclerview.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
             task_adapter = new home_customadapter(dataque_task(), getContext());
+            task_recyclerview.setAdapter(task_adapter);*/
+
+            task_recyclerview = (RecyclerView) v.findViewById(R.id.task_recycle);
+            task_recyclerview.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
+
+            FirebaseRecyclerOptions<task_model> task_options=
+                    new FirebaseRecyclerOptions.Builder<task_model>()
+                            .setQuery(FirebaseDatabase.getInstance().getReference().child("schools").child(schoolname).child("100").child(gradecode).child("tasks"), task_model.class)
+                            .build();
+
+            task_adapter =new task_custom_adapter(task_options, getContext());
             task_recyclerview.setAdapter(task_adapter);
 
 
@@ -390,12 +413,14 @@ public class Home extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        task_adapter.startListening();
         firebase_subject_adapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
+        task_adapter.stopListening();
         firebase_subject_adapter.stopListening();
     }
 
