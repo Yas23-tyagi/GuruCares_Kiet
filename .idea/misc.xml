@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DesignSurface">
-    <option name="filePathToZoomLevelMap">
-      <map>
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/activity_dashboard.xml" value="0.2463768115942029" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/activity_entry1.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/activity_event_edit.xml" value="0.2418478260869565" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/activity_main.xml" value="0.2463768115942029" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/activity_maincalendar.xml" value="0.2418478260869565" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/adminhome_custom_layout.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/allcustomcards_custom_layout.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/calendar_cell.xml" value="0.2418478260869565" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/chapter_custom_layout.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/custom_grade_layout.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/custom_section_layout.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/event_cell.xml" value="0.2418478260869565" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/fragment_addchapter.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/fragment_dash.xml" value="0.2463768115942029" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/GuruCares/app/src/main/res/layout/fragment_home.xml" value="0.2463768115942029" />
-      </map>
-    </option>
-  </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
