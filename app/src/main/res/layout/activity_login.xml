@@ -43,6 +43,7 @@
             android:id="@+id/password"
             android:gravity="center"
             android:hint="Password"
+            android:inputType="textPassword"
             android:textColorHint="#0B5460"/>
 
         <TextView
