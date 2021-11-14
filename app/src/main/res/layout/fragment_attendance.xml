@@ -3,12 +3,100 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragmentclass.Attendance">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#77B6E3E8"
+        >
+
+        <TextView
+            android:id="@+id/heading_attendance_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Attendance Dashboard"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <com.app.progresviews.ProgressWheel
+            android:id="@+id/wheelprogress"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:layout_below="@+id/heading_attendance_1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            app:barWidth="17dp"
+            app:countText="75%"
+            app:countTextColor="@android:color/black"
+            app:countTextSize="30sp"
+            app:defTextColor="@android:color/black"
+            app:defTextSize="10sp"
+            app:marginBtwText="15dp"
+            app:percentage="270"
+            app:progressColor="#64b324"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/attendance_recview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wheelprogress"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            tools:itemCount="1"
+            tools:listitem="@layout/attendance_recview_item" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/attendance_recview"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            >
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="#2FB136"
+                android:id="@+id/color_green"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NORMAL :"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/attendance_percentage"
+                    android:text="17 | 200"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="20dp"
+                    />
+                <TextView
+                    android:id="@+id/attendance_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="85.5%"
+                    android:textColor="#2FB136"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
 
 </FrameLayout>
