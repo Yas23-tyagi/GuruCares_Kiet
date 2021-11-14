@@ -126,7 +126,7 @@ public class allsubjects extends Fragment {
                         .build();
 
 
-        chapter_allsubjects_adapter=new chapter_custom_adapter(options_chapter);
+        chapter_allsubjects_adapter=new chapter_custom_adapter(options_chapter, schoolname, gradecode, subjectname_from_home);
         chaptername_recyclerview.setAdapter(chapter_allsubjects_adapter);
 
 

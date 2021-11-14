@@ -7,6 +7,7 @@ public class subject_model {
     private String facultyname;
     private String cardcolor;
     private String imageurl;
+    private int nchapters;
 
 
     public subject_model()
@@ -25,13 +26,24 @@ public class subject_model {
 
     }
 
-    public subject_model(String subjectname, String facultyname, String cardcolor, String imageurl) {
+    public subject_model(String subjectname, String facultyname, String cardcolor, String imageurl, int nchapters) {
         this.subjectname = subjectname;
         this.facultyname = facultyname;
         this.cardcolor = cardcolor;
         this.imageurl = imageurl;
+        this.nchapters = nchapters;
 
 
+
+    }
+
+
+    public int getNchapters() {
+        return nchapters;
+    }
+
+    public void setNchapters(int nchapters) {
+        this.nchapters = nchapters;
     }
 
     public String getImageurl() {

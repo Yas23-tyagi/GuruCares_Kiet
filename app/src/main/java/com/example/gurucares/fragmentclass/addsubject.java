@@ -144,7 +144,7 @@ public class addsubject extends Fragment {
                 String titlename = subjectname.getText().toString().trim();
 
 
-                subject_model model = new subject_model(titlename, facultyname[0], cardcolors, imageurl);
+                subject_model model = new subject_model(titlename, facultyname[0], cardcolors, imageurl, 0);
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference reference = database.getReference().child("schools").child(schoolname).child("100").child("01").child("subjects");
                 reference.child(titlename).setValue(model);

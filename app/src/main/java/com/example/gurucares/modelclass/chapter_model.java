@@ -4,7 +4,7 @@ public class chapter_model {
 
 
     private String chaptername;
-    private String chaptertitle;
+   // private String chaptertitle;
     private String chapterdescription;
     private String filelink;
 

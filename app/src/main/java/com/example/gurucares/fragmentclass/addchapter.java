@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -19,11 +20,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gurucares.R;
+import com.example.gurucares.activityclass.MainActivity;
 import com.example.gurucares.modelclass.chapter_model;
+import com.example.gurucares.modelclass.subject_model;
 import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -56,13 +64,12 @@ public class addchapter extends Fragment {
 
     String schoolname, sectioncode , gradecode, studentcode, subjectname;
 
-    StorageReference storagereference;
+    StorageReference storageReference;
     DatabaseReference databaseReference;
 
+    int nchapters;
 
     Uri filepath;
-
-
 
     public addchapter() {
         // Required empty public constructor
@@ -118,43 +125,21 @@ public class addchapter extends Fragment {
         addbtn = (TextView) v.findViewById(R.id.addbtn);
 
 
+        storageReference = FirebaseStorage.getInstance().getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReference("uploadPdf");
 
 
+        addbtn.setVisibility(View.INVISIBLE);
 
         browsebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                /*browsepic.setVisibility(View.GONE);
-                removepdfbtn.setVisibility(View.VISIBLE);
-                pdfpic.setVisibility(View.VISIBLE);
-                browsebtn.setVisibility(View.GONE);*/
-                Dexter.withContext(getContext()).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
-                        .withListener(new PermissionListener() {
-                            @Override
-                            public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-                                Intent i=new Intent();
-                                i.setType("application/pdf");
-                                i.setAction(Intent.ACTION_GET_CONTENT);
-                                startActivityForResult(Intent.createChooser(i,"Select Pdf Files"),101);
-                            }
-
-                            @Override
-                            public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-
-                            }
-
-                            @Override
-                            public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
-                                permissionToken.continuePermissionRequest();
-                            }
-                        }).check();
-
-
-
-
+                //addbtn.setVisibility(View.VISIBLE);
+                selectPdf();
             }
         });
+
+
 
 
         removepdfbtn.setOnClickListener(new View.OnClickListener() {
@@ -165,84 +150,35 @@ public class addchapter extends Fragment {
                 browsepic.setVisibility(View.VISIBLE);
                 browsebtn.setVisibility(View.VISIBLE);
                 removepdfbtn.setVisibility(View.GONE);
+                //data.setData(null);
+                addbtn.setVisibility(View.INVISIBLE);
+
+
+
 
             }
         });
-        
-        
-        addbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //process(filepath);
-
-
-                if(filepath == null)
-                {
-                    Toast.makeText(getContext(), "null", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Toast.makeText(getContext(), "filepath", Toast.LENGTH_SHORT).show();
-
-                    final ProgressDialog pd=new ProgressDialog(getContext());
-                    pd.setTitle("File Uploading....!!!");
-                    pd.show();
-
-                    //StorageReference reference;
-                    StorageReference reference = storagereference.child("uploads/");
-                    reference.putFile(filepath)
-                            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                @Override
-                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-
-                                    Toast.makeText(getContext(), "Uploaded", Toast.LENGTH_SHORT).show();
-                                   /* reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-
-                                            chapter_model model = new chapter_model(chaptertitle.getText().toString(), chapterdescription.getText().toString(), uri.toString());
-                                            FirebaseDatabase db = FirebaseDatabase.getInstance();
-                                            databaseReference = db.getReference().child("schools").child(schoolname).child("100").child(gradecode).child("subjects").child("subjectname").child("chapters");
-                                            databaseReference.child("chapter3").setValue(model);
-
-                                            pdfpic.setVisibility(View.GONE);
-                                            browsepic.setVisibility(View.VISIBLE);
-                                            browsebtn.setVisibility(View.VISIBLE);
-                                            removepdfbtn.setVisibility(View.GONE);
-
-
-                                        }
-                                    });*/
 
 
 
-                                }
-                            })
-                            .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                                @Override
-                                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+        FirebaseDatabase database =  FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference().child("schools").child("trmps").child("100").child(gradecode).child("subjects").child(subjectname);
+                ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                                    float percent=(100*snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
-                                    pd.setMessage("Uploaded :"+(int)percent+"%");
+                        subject_model model = snapshot.getValue(subject_model.class);
+                         nchapters = model.getNchapters();
 
+                        //Toast.makeText(getContext(), " " + nchapters, Toast.LENGTH_SHORT).show();
 
+                    }
 
-                                }
-                            });
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-
-
-                }
-
-
-
-
-                
-
-            }
-        });
+                    }
+                });
 
 
 
@@ -250,92 +186,114 @@ public class addchapter extends Fragment {
     }
 
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    private void selectPdf() {
+        Intent intent = new Intent();
+        intent.setType("application/pdf");
+        intent.setAction(intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent,"PDF File Selected"),12);
 
-        if(filepath == null)
-        {
-            Toast.makeText(getContext(), "Null filepath", Toast.LENGTH_SHORT).show();
-        }
-
-
-        if(requestCode == 101 && resultCode==getActivity().RESULT_OK)
-        {
-            //Toast.makeText(getContext(), filepath.toString(), Toast.LENGTH_SHORT).show();
-            filepath = data.getData();
-
-            if(filepath == null)
-            {
-                Toast.makeText(getContext(), "Null filepath", Toast.LENGTH_SHORT).show();
-            }
-            browsepic.setVisibility(View.GONE);
-            removepdfbtn.setVisibility(View.VISIBLE);
-            pdfpic.setVisibility(View.VISIBLE);
-            browsebtn.setVisibility(View.GONE);
-        }
     }
 
-   /* @Override
-    public void startActivityForResult(Intent intent, int requestCode) {
-        super.startActivityForResult(intent, requestCode);
-        if(requestCode == 101)
-        {
-            filepath = intent.getData();
-            browsepic.setVisibility(View.GONE);
-            removepdfbtn.setVisibility(View.VISIBLE);
-            pdfpic.setVisibility(View.VISIBLE);
-            browsebtn.setVisibility(View.GONE);
-        }
 
 
-    }*/
 
-    /*public void process(Uri filepath)
-    {
-        final ProgressDialog pd=new ProgressDialog(getContext());
-        pd.setTitle("File Uploading....!!!");
-        pd.show();
 
-        //Putting pdf file on storage of firebase
-        StorageReference reference = storagereference.child("uploads/" + System.currentTimeMillis() + " .pdf");
-        reference.putFile(filepath)
+    private void uploadPDfFileFirebase(Uri data) {
+        final ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setTitle("File Loading...");
+        progressDialog.show();
+
+        StorageReference reference = storageReference.child("upload"+System.currentTimeMillis()+".pdf");
+        reference.putFile(data)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
+                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                        while (! uriTask.isComplete());
+                        Uri uri = uriTask.getResult();
 
-                                chapter_model model = new chapter_model(chaptertitle.getText().toString(), chapterdescription.getText().toString(), uri.toString());
-                                FirebaseDatabase db = FirebaseDatabase.getInstance();
-                                databaseReference = db.getReference().child("schools").child(schoolname).child("100").child(gradecode).child("subjects").child("subjectname").child("chapters");
-                                databaseReference.child("chapter3").setValue(model);
+                        //insertPDF insertPDF = new insertPDF(editText.getText().toString(),uri.toString());
+                        chapter_model model = new chapter_model(chaptertitle.getText().toString(), chapterdescription.getText().toString(), uri.toString());
+                        //databaseReference.child(databaseReference.push().getKey()).setValue(model);
 
-                                pdfpic.setVisibility(View.GONE);
-                                browsepic.setVisibility(View.VISIBLE);
-                                browsebtn.setVisibility(View.VISIBLE);
-                                removepdfbtn.setVisibility(View.GONE);
+                        FirebaseDatabase db = FirebaseDatabase.getInstance();
+                        databaseReference = db.getReference().child("schools").child(schoolname).child("100").child(gradecode).child("subjects").child(subjectname);
+                        databaseReference.child("chapters").child("chapter"+(nchapters+1)).setValue(model);
 
-
-                            }
-                        });
+                        FirebaseDatabase database =  FirebaseDatabase.getInstance();
+                        DatabaseReference ref = database.getReference().child("schools").child("trmps").child("100").child(gradecode).child("subjects").child(subjectname);
+                        ref.child("nchapters").setValue(nchapters+1);
 
 
-
+                        Toast.makeText(getContext(),"File Uploaded Successfully",Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
                     }
-                })
-                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-
-                        float percent=(100*snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
-                        pd.setMessage("Uploaded :"+(int)percent+"%");
+                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                double progress = (100.0* snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
+                progressDialog.setMessage("File Uploading.."+(int)progress+"%");
 
 
+            }
+        });
 
-                    }
-                });
+        browsepic.setVisibility(View.VISIBLE);
+        removepdfbtn.setVisibility(View.GONE);
+        pdfpic.setVisibility(View.GONE);
+        browsebtn.setVisibility(View.VISIBLE);
+
+
+        Toast.makeText(getContext(), "pdf uploading", Toast.LENGTH_SHORT).show();
+    }
+
+
+    /*public void downloadpdfbutton(View view) {
+        startActivity(new Intent(getContext(),DownloadPdfActivity.class));
     }*/
+
+
+
+
+
+@Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if (requestCode == 12 && resultCode == getActivity().RESULT_OK && data!=null && data.getData()!=null)
+        {
+            //uploadbutton.setEnabled(true);
+            //editText.setText(data.getDataString().substring(data.getDataString().lastIndexOf("/")+1));
+
+            addbtn.setVisibility(View.VISIBLE);
+            browsepic.setVisibility(View.GONE);
+            removepdfbtn.setVisibility(View.VISIBLE);
+            pdfpic.setVisibility(View.VISIBLE);
+            browsebtn.setVisibility(View.GONE);
+
+
+            addbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //uploadbutton.setBackground(ContextCompat.getDrawable(getBaseContext(),R.drawable.darkblueoutline));
+                    addbtn.setVisibility(View.INVISIBLE);
+                    uploadPDfFileFirebase(data.getData());
+                }
+            });
+        }
+        else
+        {
+            Toast.makeText(getContext(), "Select a pdf file to upload", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+
+
+
+    }
+
+
 }
