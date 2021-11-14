@@ -1,28 +1,22 @@
 package com.example.gurucares.fragmentclass;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.example.gurucares.R;
-import com.example.gurucares.timeTable.MainActivityCalendar;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Dash#newInstance} factory method to
+ * Use the {@link GeetaSaar#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Dash extends Fragment {
-    CardView  cardView;
-    CardView Bhagwadgeeta;
+public class GeetaSaar extends Fragment {
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -32,7 +26,7 @@ public class Dash extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Dash() {
+    public GeetaSaar() {
         // Required empty public constructor
     }
 
@@ -42,11 +36,11 @@ public class Dash extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Dash.
+     * @return A new instance of fragment GeetaSaar.
      */
     // TODO: Rename and change types and number of parameters
-    public static Dash newInstance(String param1, String param2) {
-        Dash fragment = new Dash();
+    public static GeetaSaar newInstance(String param1, String param2) {
+        GeetaSaar fragment = new GeetaSaar();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,29 +61,7 @@ public class Dash extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_dash, container, false);
-        cardView=view.findViewById(R.id.timetable);
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), MainActivityCalendar.class);
-                startActivity(intent);
-            }
-        });
-
-        Bhagwadgeeta = view.findViewById(R.id.geeta);
-        Bhagwadgeeta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                Fragment myFragment = new GeetaSaar();
-                //myFragment.setArguments(bundle_addsubject);
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment, myFragment).addToBackStack(null).commit();
-            }
-        });
-
-
-        return view;
+        View v =  inflater.inflate(R.layout.fragment_geeta_saar, container, false);
+        return v;
     }
-
 }
