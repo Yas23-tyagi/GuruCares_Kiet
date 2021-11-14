@@ -7,8 +7,10 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gurucares.R;
 import com.example.gurucares.modelclass.QuizModal;
@@ -21,6 +23,7 @@ import static com.example.gurucares.fragmentclass.quiz_info.quizModals;
 //import static com.example.gurucares.fragmentclass..quizModals;
 
 public class DashboardActivity extends AppCompatActivity {
+    String username , userid, gradename, sectionname;
     private TextView questions, textbtnA, textbtnB, textbtnC, textbtnD;
     CardView cardOptA, cardOptB, cardOptC, cardOptD;
     List<QuizModal> allquestionlist;
@@ -36,6 +39,13 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        username = getIntent().getStringExtra("username");
+        userid = getIntent().getStringExtra("userid");
+        gradename = getIntent().getStringExtra("gradename");
+        sectionname = getIntent().getStringExtra("sectionname");
+
+
 
         idmethod();
 
@@ -70,7 +80,48 @@ public class DashboardActivity extends AppCompatActivity {
                 });
             }
         }.start();
+
+
+
+
+
+
+
+
+
+
+
     }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            onBackPressed();
+        }
+
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        //this is only needed if you have specific things
+        //that you want to do when the user presses the back button.
+        // your specific things...
+        super.onBackPressed();
+        Intent i = new Intent(this, MainActivity.class);
+        i.putExtra("username", username);
+        i.putExtra("userid", userid);
+        i.putExtra("gradename", gradename);
+        i.putExtra("sectionname", sectionname);
+        startActivity(i);
+
+
+    }
+
+
+
+
 
     private void idmethod() {
         linearProgressIndicator = findViewById(R.id.quest_timer);
@@ -101,28 +152,54 @@ public class DashboardActivity extends AppCompatActivity {
     public void correctans(CardView cardView)
     {
 //        next.setVisibility(View.VISIBLE);
+        //Toast.makeText(getApplicationContext()," "+index, Toast.LENGTH_SHORT).show();
         cardView.setCardBackgroundColor(getResources().getColor(R.color.design_default_color_secondary));
+        //correct++;
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetcolour();
-                correct++;
-                index++;
-                quizModal=quizModals.get(index);//to get the position of the list in model class
-                setDatatoViews();
-                enablebutton();
+                if(index<quizModals.size()-1)
+                {
+                    correct++;
+                    index++;
+                    quizModal=quizModals.get(index);
+                    setDatatoViews();
+                    resetcolour();
+                    enablebutton();
+                }
+                else
+                {
+                    correct++;
+                    GameWon();
+                }
+
+                /*if(index==quizModals.size())
+                {
+                    //correct++;
+                    GameWon();
+                }*/
+
             }
         });
     }
 
     public void wrongans(CardView cardOptA)
     {
+        //Toast.makeText(getApplicationContext()," "+index, Toast.LENGTH_SHORT).show();
+
+        //Toast.makeText(getApplicationContext(), index, Toast.LENGTH_SHORT).show();
 //        next.setVisibility(View.VISIBLE);
         cardOptA.setCardBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                wrong++;
+                //wrong++;
+                /*if(index==quizModals.size())
+                {
+                    GameWon();
+                }*/
+
+
                 if(index<quizModals.size()-1)
                 {
                     index++;
@@ -133,8 +210,11 @@ public class DashboardActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    //correct++;
                     GameWon();
                 }
+
+
 
             }
         });
@@ -144,6 +224,11 @@ public class DashboardActivity extends AppCompatActivity {
         Intent intent = new Intent(DashboardActivity.this,FinalResult.class);
         intent.putExtra("correct",correct);
         intent.putExtra("wrong",wrong);
+        intent.putExtra("size", quizModals.size());
+        intent.putExtra("username", username);
+        intent.putExtra("userid", userid);
+        intent.putExtra("gradename", gradename);
+        intent.putExtra("sectionname", sectionname);
         startActivity(intent);
     }
 
@@ -178,7 +263,7 @@ public class DashboardActivity extends AppCompatActivity {
         if(quizModal.getOption1().equals(quizModal.getAnswer()))
         {
 //            cardOptA.setCardBackgroundColor(getResources().getColor(R.color.design_default_color_secondary));
-            if(index < quizModals.size()-1)
+            if(index <= quizModals.size()-1)
             {
                 correctans(cardOptA);
 //                resetcolour();//some error
@@ -201,7 +286,7 @@ public class DashboardActivity extends AppCompatActivity {
         if(quizModal.getOption2().equals(quizModal.getAnswer()))
         {
 //            cardOptB.setCardBackgroundColor(getResources().getColor(R.color.design_default_color_secondary));
-            if(index<quizModals.size()-1)
+            if(index<=quizModals.size()-1)
             {
                 correctans(cardOptB);
 //                resetcolour();//some error
@@ -224,7 +309,7 @@ public class DashboardActivity extends AppCompatActivity {
         if(quizModal.getOption3().equals(quizModal.getAnswer()))
         {
 //            cardOptC.setCardBackgroundColor(getResources().getColor(R.color.design_default_color_secondary));
-            if(index<quizModals.size()-1)
+            if(index <= quizModals.size()-1)
             {
                 correctans(cardOptC);
 //                resetcolour();//some error
@@ -232,7 +317,7 @@ public class DashboardActivity extends AppCompatActivity {
             }
             else
             {
-                GameWon();
+                //GameWon();
             }
         }
         else
@@ -247,7 +332,7 @@ public class DashboardActivity extends AppCompatActivity {
         if(quizModal.getOption4().equals(quizModal.getAnswer()))
         {
 //            cardOptD.setCardBackgroundColor(getResources().getColor(R.color.design_default_color_secondary));
-            if(index<quizModals.size()-1)
+            if(index <= quizModals.size()-1)
             {
                 correctans(cardOptD);
 //                resetcolour();//some error
@@ -255,7 +340,7 @@ public class DashboardActivity extends AppCompatActivity {
             }
             else
             {
-                GameWon();
+                //GameWon();
             }
         }
         else

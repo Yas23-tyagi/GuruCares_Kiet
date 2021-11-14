@@ -10,11 +10,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.gurucares.R;
 import com.example.gurucares.activityclass.Questions_n_Answers;
 import com.example.gurucares.modelclass.QuizModal;
+import com.example.gurucares.modelclass.quiz_info_model;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -28,6 +32,8 @@ import java.util.ArrayList;
 
         public static ArrayList<QuizModal> quizModals;
         TextView nextbtn;
+        EditText quizsubject, nquestions, timeduration;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,6 +43,10 @@ import java.util.ArrayList;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    String schoolname;
+    String gradecode;
+    String facultyname;
+    String username, userid, gradename, sectionname;
 
     public quiz_info() {
         // Required empty public constructor
@@ -75,14 +85,50 @@ import java.util.ArrayList;
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_quiz_info, container, false);
 
+
+
+
+        Bundle bundle = this.getArguments();
+        schoolname = bundle.getString("schoolname");
+        facultyname = bundle.getString("facultyname");
+        gradecode = bundle.getString("gradecode");
+        username = bundle.getString("username");
+        userid = bundle.getString("userid");
+        gradename = bundle.getString("gradename");
+        sectionname = bundle.getString("sectionname");
+
+
         quizModals = new ArrayList<QuizModal>();
 
         nextbtn = (TextView) v.findViewById(R.id.nextbtn);
+        quizsubject = (EditText) v.findViewById(R.id.quiztitle);
+        nquestions = (EditText) v.findViewById(R.id.nquestions);
+        timeduration = (EditText) v.findViewById(R.id.timeduration);
+
+
         nextbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                quiz_info_model model = new quiz_info_model(quizsubject.getText().toString(), "quiz", facultyname, Integer.parseInt(nquestions.getText().toString()), Integer.parseInt(timeduration.getText().toString()));
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference reference = database.getReference().child("schools").child(schoolname).child("100").child(gradecode).child("tasks");
+                reference.child(quizsubject.getText().toString()).setValue(model);
+
+
                 Intent i = new Intent (getContext(), Questions_n_Answers.class);
+                i.putExtra("nquestions", nquestions.getText().toString());
+                i.putExtra("quizsubject", quizsubject.getText().toString());
+                i.putExtra("timeduration", timeduration.getText().toString());
+                i.putExtra("schoolname", schoolname);
+                i.putExtra("gradecode", gradecode);
+                i.putExtra("facultyname", facultyname);
+                i.putExtra("username", username);
+                i.putExtra("userid", userid);
+                i.putExtra("gradename", gradename);
+                i.putExtra("sectionname", sectionname);
+
                 startActivity(i);
 
             }

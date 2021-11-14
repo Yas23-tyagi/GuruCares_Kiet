@@ -19,6 +19,8 @@ import com.example.gurucares.activityclass.DashboardActivity;
 import com.example.gurucares.activityclass.MainActivity;
 import com.example.gurucares.modelclass.QuizModal;
 import com.example.gurucares.viewholder.home_viewholder;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -27,11 +29,31 @@ import static com.example.gurucares.fragmentclass.quiz_info.quizModals;
 public class question_custom_adapter extends RecyclerView.Adapter<question_custom_adapter.myviewholder> {
 
     Context context;
+    int nquestions;
+    String quizsubject;
+    String schoolname, gradecode;
+    //String facultyname;
+
+    String username, userid, gradename, sectionname;
+
     //public static ArrayList<QuizModal> quizModals;
 
 
-    public question_custom_adapter(Context context) {
+    public question_custom_adapter(Context context, int nquestions, String quizsubject, String schoolname , String gradecode, String username, String userid, String gradename, String sectionname)
+    {
         this.context = context;
+        this.nquestions = nquestions;
+        this.quizsubject = quizsubject;
+        this.schoolname = schoolname;
+        this.gradecode = gradecode;
+        //this.facultyname = facultyname;
+        this.username = username;
+        this.userid = userid;
+        this.gradename = gradename;
+        this.sectionname = sectionname;
+
+
+
     }
 
     @NonNull
@@ -48,13 +70,15 @@ public class question_custom_adapter extends RecyclerView.Adapter<question_custo
         //quizModals = new ArrayList<>();
         String head = "Question-"+(position+1);
         holder.headtxt.setText(head);
+        //holder.facultyname.setText("Soumen Paul");
+
 
         if(position==0)
         {
             holder.linearhead.setVisibility(View.VISIBLE);
         }
 
-        if(position==4)
+        if(position==(nquestions-1))
         {
             holder.addbtn.setVisibility(View.VISIBLE);
         }
@@ -65,9 +89,23 @@ public class question_custom_adapter extends RecyclerView.Adapter<question_custo
             public void onClick(View v) {
 
 
+                for(int i=1;i<=nquestions;i++)
+                {
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference reference = database.getReference().child("schools").child(schoolname).child("100").child(gradecode).child("tasks");
+                    reference.child(quizsubject).child("questions").child("question"+i).setValue(quizModals.get(i-1));
+
+                }
+
+
 
                 //then shifiting the user to Main Activity again
-                Intent i = new Intent(context, DashboardActivity.class);
+
+                Intent i = new Intent(context, MainActivity.class);
+                i.putExtra("username", username);
+                i.putExtra("userid", userid);
+                i.putExtra("gradename", gradename);
+                i.putExtra("sectionname", sectionname);
                 context.startActivity(i);
 
 
@@ -131,7 +169,7 @@ public class question_custom_adapter extends RecyclerView.Adapter<question_custo
 
     @Override
     public int getItemCount() {
-        return 5;
+        return nquestions;
     }
 
     static class myviewholder extends RecyclerView.ViewHolder
@@ -148,7 +186,7 @@ public class question_custom_adapter extends RecyclerView.Adapter<question_custo
         LinearLayout cardback;
         TextView addbtn;
         TextView lockbtn;
-
+        //TextView facultyname;
 
 
         public myviewholder(@NonNull View itemView) {
@@ -159,6 +197,7 @@ public class question_custom_adapter extends RecyclerView.Adapter<question_custo
             linearhead = (LinearLayout) itemView.findViewById(R.id.linearhead);
             cardback = (LinearLayout) itemView.findViewById(R.id.cardback);
             headtxt = (TextView) itemView.findViewById(R.id.headtxt);
+            //facultyname = (TextView) itemView.findViewById(R.id.facultyname);
 
             question = (EditText) itemView.findViewById(R.id.question_et);
             option1 = (EditText) itemView.findViewById(R.id.option1et);

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,6 +47,7 @@ public class Home extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    public String facultyname ;
     public RecyclerView subject_recyclerview;
     public RecyclerView task_recyclerview;
    // public home_customadapter task_adapter;
@@ -111,7 +113,7 @@ public class Home extends Fragment {
         String sectionname = bundle.getString("sectionname");
         String schoolname = (String) username.substring(8,13).toString();
         String studentcode = username.substring(0,3);
-        String gradecode = username.substring(3,5);
+        String gradecode = username.substring(3,5).toString();
         String sectioncode = username.substring(5,7);
 
         ImageView addtask = v.findViewById(R.id.addtask);
@@ -180,7 +182,7 @@ public class Home extends Fragment {
                             .setQuery(FirebaseDatabase.getInstance().getReference().child("schools").child(schoolname).child("100").child(gradecode).child("tasks"), task_model.class)
                             .build();
 
-            task_adapter =new task_custom_adapter(task_options, getContext());
+            task_adapter =new task_custom_adapter(task_options, getContext(), username , userid , gradename, sectionname );
             task_recyclerview.setAdapter(task_adapter);
 
 
@@ -212,7 +214,7 @@ public class Home extends Fragment {
 
         else if(studentcode.equals("200"))
         {
-
+            //final String[] facultyname = new String[1];
             String headertext = "Check Your Class";
             String headerbuttontext = "Open Class";
 
@@ -237,21 +239,7 @@ public class Home extends Fragment {
             });
 
 
-            addtask.setVisibility(View.VISIBLE);
-            addtask.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-
-
-                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                    Fragment myFragment = new add_task();
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment, myFragment).addToBackStack(null).commit();
-
-
-
-                }
-            });
 
 
             addsubject.setVisibility(View.VISIBLE);
@@ -356,7 +344,7 @@ public class Home extends Fragment {
                             .setQuery(FirebaseDatabase.getInstance().getReference().child("schools").child(schoolname).child("100").child(gradecode).child("tasks"), task_model.class)
                             .build();
 
-            task_adapter =new task_custom_adapter(task_options, getContext());
+            task_adapter =new task_custom_adapter(task_options, getContext(), username, userid, gradename, sectionname);
             task_recyclerview.setAdapter(task_adapter);
 
 
@@ -381,6 +369,39 @@ public class Home extends Fragment {
 
 
 
+            FirebaseDatabase dbs = FirebaseDatabase.getInstance();
+            DatabaseReference ref = dbs.getReference().child("schools").child(schoolname).child("teachers").child(userid);
+
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    student_info_model info = snapshot.getValue(student_info_model.class);
+
+                    //Toast.makeText(getContext(), info.getName(), Toast.LENGTH_SHORT).show();
+
+                    facultyname = info.getName() + info.getBackname();
+                    //facultyname= name;
+
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+
+            addtask.setVisibility(View.VISIBLE);
+            String finalGradecode = gradecode;
+            addtask.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+
+                    //final String[] facultyname = new String[1];
 
 
 
@@ -388,7 +409,26 @@ public class Home extends Fragment {
 
 
 
+                    Bundle bundle_addtask = new Bundle();
+                    bundle_addtask.putString("schoolname", schoolname);
+                    bundle_addtask.putString("gradecode", finalGradecode);
+                    bundle_addtask.putString("facultyname", facultyname);
+                    bundle_addtask.putString("username", username);
+                    bundle_addtask.putString("userid", userid);
+                    bundle_addtask.putString("gradename", gradename);
+                    bundle_addtask.putString("sectionname", sectionname);
 
+                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                    Fragment myFragment = new add_task();
+                    myFragment.setArguments(bundle_addtask);
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment, myFragment).addToBackStack(null).commit();
+
+
+                   // Toast.makeText(getContext(), schoolname + facultyname+ finalGradecode, Toast.LENGTH_SHORT).show();
+
+
+                }
+            });
 
 
 

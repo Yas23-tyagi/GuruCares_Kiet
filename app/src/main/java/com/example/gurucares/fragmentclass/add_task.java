@@ -78,6 +78,23 @@ public class add_task extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_add_task, container, false);
 
+        String schoolname;
+        String gradecode;
+        String facultyname;
+        String username, userid, gradename, sectionname;
+
+
+        Bundle bundle = this.getArguments();
+        schoolname = bundle.getString("schoolname");
+        facultyname = bundle.getString("facultyname");
+        gradecode = bundle.getString("gradecode");
+        username = bundle.getString("username");
+        userid = bundle.getString("userid");
+        gradename = bundle.getString("gradename");
+        sectionname = bundle.getString("sectionname");
+
+
+
         LinearLayout addquiz = (LinearLayout) v.findViewById(R.id.addquiz);
         LinearLayout addassign = (LinearLayout) v.findViewById(R.id.addassignment);
         TextView addbtn = (TextView) v.findViewById(R.id.addbtn);
@@ -123,8 +140,19 @@ public class add_task extends Fragment {
                     quizModals.add(new QuizModal("Android is Licensed under ?","OSS","Sourceforge","Apache/MIT","None of the above","Sourceforge"));
 */
 
+                    Bundle bundle_addtask = new Bundle();
+                    bundle_addtask.putString("schoolname", schoolname);
+                    bundle_addtask.putString("gradecode", gradecode);
+                    bundle_addtask.putString("facultyname", facultyname);
+                    bundle_addtask.putString("username", username);
+                    bundle_addtask.putString("userid", userid);
+                    bundle_addtask.putString("gradename", gradename);
+                    bundle_addtask.putString("sectionname", sectionname);
+
+
                     AppCompatActivity activity = (AppCompatActivity) v.getContext();
                     Fragment myFragment = new quiz_info();
+                    myFragment.setArguments(bundle_addtask);
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment, myFragment).addToBackStack(null).commit();
 
 

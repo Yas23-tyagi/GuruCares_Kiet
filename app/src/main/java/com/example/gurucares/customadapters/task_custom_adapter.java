@@ -38,6 +38,8 @@ public class task_custom_adapter extends FirebaseRecyclerAdapter<task_model, tas
     String schoolname, gradecode;
     Context context;
     int nquestions;
+    String username, userid, gradename, sectionname;
+
 
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
@@ -45,10 +47,14 @@ public class task_custom_adapter extends FirebaseRecyclerAdapter<task_model, tas
      *
      * @param options
      */
-    public task_custom_adapter(@NonNull FirebaseRecyclerOptions<task_model> options, Context context) {
+    public task_custom_adapter(@NonNull FirebaseRecyclerOptions<task_model> options, Context context, String username, String userid, String gradename, String sectionname) {
         super(options);
         this.context = context;
 
+        this.username = username;
+        this.userid = userid;
+        this.gradename = gradename;
+        this.sectionname = sectionname;
 
     }
 
@@ -143,6 +149,10 @@ public class task_custom_adapter extends FirebaseRecyclerAdapter<task_model, tas
                     }
 
                     Intent i = new Intent(context, DashboardActivity.class);
+                    i.putExtra("username", username);
+                    i.putExtra("userid", userid);
+                    i.putExtra("gradename", gradename);
+                    i.putExtra("sectionname", sectionname);
                     context.startActivity(i);
 
 

@@ -96,8 +96,6 @@ public class addsubject extends Fragment {
 
 
         final String[] facultyname = new String[1];
-
-
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         DatabaseReference ref = db.getReference().child("schools").child(schoolname).child("teachers").child(userid);
 
