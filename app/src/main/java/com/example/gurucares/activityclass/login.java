@@ -2,6 +2,7 @@ package com.example.gurucares.activityclass;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ public class login extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                loginbtn.setBackground(ContextCompat.getDrawable(getBaseContext(),R.drawable.blackoutlinebg));
 
                 String user = username.getText().toString();
                 String pass = password.getText().toString();

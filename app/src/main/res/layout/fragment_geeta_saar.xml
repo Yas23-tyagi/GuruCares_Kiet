@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentclass.GeetaSaar"
+    android:background="#edf0f5">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Shrimad Bhagwat Geeta"
+                android:shadowColor="#F0F5F8"
+                android:shadowRadius="2"
+                android:textColor="#02335A"
+                android:textSize="25sp"
+                android:textAlignment="center"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/krishnaji"
+            android:layout_weight="2.6"/>
+        <View
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4.58"
+            android:background="@color/black"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="“यदा यदा हि धर्मस्य ग्लानिर्भवति भारत। अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्।।” \n\n Whenever there is a downfall of Dharma and the Adharma prevails, I re-incarnate myself on this abode Earth for the well-being of Mankind"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:padding="20dp"/>
+
+        <View
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4.58"
+            android:background="@color/black"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:text="NEXT"
+            android:background="@drawable/darkblueback"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_margin="15dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_weight="4.2"/>
+
+    </LinearLayout>
+
+
+
+
+</FrameLayout>
