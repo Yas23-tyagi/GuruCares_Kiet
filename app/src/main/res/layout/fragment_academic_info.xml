@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AcademicInfo">
-
+    tools:context=".fragmentclass.AcademicInfo">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -35,6 +34,7 @@
                 android:layout_marginLeft="15dp"
                 android:text="Physics"
                 android:textSize="25dp" />
+
             <ImageButton
                 android:id="@+id/imageButton1"
                 android:layout_width="match_parent"

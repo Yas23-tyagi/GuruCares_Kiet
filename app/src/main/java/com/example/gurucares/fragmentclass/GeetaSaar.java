@@ -2,11 +2,14 @@ package com.example.gurucares.fragmentclass;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.gurucares.R;
 
@@ -16,6 +19,7 @@ import com.example.gurucares.R;
  * create an instance of this fragment.
  */
 public class GeetaSaar extends Fragment {
+    TextView geetaonboardingnextbutton;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,7 +65,17 @@ public class GeetaSaar extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.fragment_geeta_saar, container, false);
-        return v;
+        View view =  inflater.inflate(R.layout.fragment_geeta_saar, container, false);
+        geetaonboardingnextbutton = view.findViewById(R.id.geetanextbtn);
+        geetaonboardingnextbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                geetaonboardingnextbutton.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.blackoutlinebg));
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                Fragment myFragment = new BhagwatGeetaPlaylist();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment, myFragment).addToBackStack(null).commit();
+            }
+        });
+        return view;
     }
 }
