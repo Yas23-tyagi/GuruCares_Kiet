@@ -8,6 +8,10 @@
     tools:context=".fragmentclass.Adhyays">
 
     <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#edf0f5">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,5 +32,5 @@
             app:showYouTubeButton="false" />
 
     </LinearLayout>
-
+    </ScrollView>
 </FrameLayout>
