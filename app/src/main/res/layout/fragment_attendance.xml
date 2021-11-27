@@ -9,7 +9,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#edf0f5"
         >
 
         <TextView
@@ -18,8 +17,9 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Attendance Dashboard"
+            android:fontFamily="@font/poppins"
+            android:textStyle="bold"
+            android:text="Overall Attendance"
             android:textSize="20sp"
             android:textColor="@color/black"/>
 
@@ -30,7 +30,7 @@
             android:layout_below="@+id/heading_attendance_1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            app:barWidth="17dp"
+            app:barWidth="20dp"
             app:countText="75%"
             app:countTextColor="@android:color/black"
             app:countTextSize="30sp"
@@ -50,6 +50,7 @@
             android:orientation="horizontal"
             tools:itemCount="1"
             tools:listitem="@layout/attendance_recview_item" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,11 +64,13 @@
                 android:background="#2FB136"
                 android:id="@+id/color_green"
                 />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NORMAL :"
+                android:text="Normal :"
                 android:layout_marginLeft="10dp"
+                android:fontFamily="@font/poppins"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 />
@@ -80,6 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@+id/attendance_percentage"
                     android:text="17 | 200"
+                    android:fontFamily="@font/poppins"
                     android:textColor="@color/black"
                     android:layout_marginRight="20dp"
                     />
@@ -89,6 +93,7 @@
                     android:layout_height="wrap_content"
                     android:text="85.5%"
                     android:textColor="#2FB136"
+                    android:fontFamily="@font/poppins"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="10dp"
                     />
