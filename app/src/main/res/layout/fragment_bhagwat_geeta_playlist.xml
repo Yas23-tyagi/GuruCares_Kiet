@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EDF0F9">
+        android:background="#ffffff">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,19 +23,25 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp">
 
+                <ImageView
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/back"
+                    android:padding="17dp"
+                    android:layout_weight="5"/>
+
                 <TextView
                     android:id="@+id/playlistheading"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="BhagwatGeeta Playlist"
-                    android:textAllCaps="true"
+                    android:text="Bhagavad Gita Playlist"
                     android:textStyle="bold"
-                    android:textSize="25sp"
-                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textColor="#005146"
                     android:textAlignment="center"
                     android:gravity="center"
-                    android:fontFamily="@font/poppins_bold"
-                    android:layout_margin="5dp"/>
+                    android:fontFamily="@font/poppins"
+                    android:layout_margin="10dp"/>
             </RelativeLayout>
 
             <GridLayout
@@ -72,7 +78,7 @@
                             android:textAlignment="center"
                             android:layout_gravity="center"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:paddingHorizontal="10dp"
                             android:textColor="@color/black"
                             android:background="@drawable/geetachapterbg"/>
@@ -104,7 +110,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:paddingHorizontal="10dp"
                             android:textColor="@color/black"
                             android:background="@drawable/geetachapterbg"/>
@@ -136,7 +142,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:paddingHorizontal="10dp"
                             android:textColor="@color/black"
                             android:background="@drawable/geetachapterbg"/>
@@ -168,7 +174,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:paddingHorizontal="10dp"
                             android:textColor="@color/black"
                             android:background="@drawable/geetachapterbg"/>
@@ -200,7 +206,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:paddingHorizontal="10dp"
                             android:textColor="@color/black"
                             android:background="@drawable/geetachapterbg"/>
@@ -232,7 +238,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:paddingHorizontal="10dp"
                             android:textColor="@color/black"
                             android:background="@drawable/geetachapterbg"/>
@@ -264,7 +270,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:paddingHorizontal="10dp"
                             android:textColor="@color/black"
                             android:background="@drawable/geetachapterbg"/>
@@ -296,7 +302,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:textColor="@color/black"
                             android:paddingHorizontal="10dp"
                             android:background="@drawable/geetachapterbg"/>
@@ -328,7 +334,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:textColor="@color/black"
                             android:paddingHorizontal="10dp"
                             android:background="@drawable/geetachapterbg"/>
@@ -360,7 +366,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:textColor="@color/black"
                             android:paddingHorizontal="10dp"
                             android:background="@drawable/geetachapterbg"/>
@@ -392,7 +398,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:textColor="@color/black"
                             android:paddingHorizontal="10dp"
                             android:background="@drawable/geetachapterbg"/>
@@ -424,7 +430,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:textColor="@color/black"
                             android:paddingHorizontal="10dp"
                             android:background="@drawable/geetachapterbg"/>
@@ -456,7 +462,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:textColor="@color/black"
                             android:paddingHorizontal="10dp"
                             android:background="@drawable/geetachapterbg"/>
@@ -488,7 +494,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:textColor="@color/black"
                             android:paddingHorizontal="10dp"
                             android:background="@drawable/geetachapterbg"/>
@@ -520,7 +526,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:textColor="@color/black"
                             android:paddingHorizontal="10dp"
                             android:background="@drawable/geetachapterbg"/>
@@ -552,7 +558,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:textColor="@color/black"
                             android:paddingHorizontal="10dp"
                             android:background="@drawable/geetachapterbg"/>
@@ -584,7 +590,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:textColor="@color/black"
                             android:paddingHorizontal="10dp"
                             android:background="@drawable/geetachapterbg"/>
@@ -616,7 +622,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="15sp"
                             android:textColor="@color/black"
                             android:paddingHorizontal="10dp"
                             android:background="@drawable/geetachapterbg"/>

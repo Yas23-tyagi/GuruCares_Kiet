@@ -31,9 +31,10 @@
                         android:layout_height="33dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="6dp"
+                        android:textColor="#01505C"
+                        android:fontFamily="@font/poppins_bold"
                         android:text="Student's Name"
                         android:textSize="20dp"
-
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -46,10 +47,11 @@
                         android:layout_width="221dp"
                         android:layout_height="22dp"
                         android:layout_marginLeft="10dp"
+                        android:textColor="#026C7C"
+                        android:fontFamily="@font/poppins"
                         android:layout_marginTop="6dp"
                         android:text="Class Roll no."
                         android:textSize="15dp"
-
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -65,7 +67,8 @@
                         android:layout_marginTop="6dp"
                         android:text="Admission no."
                         android:textSize="15dp"
-
+                        android:textColor="#026C7C"
+                        android:fontFamily="@font/poppins"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -81,7 +84,8 @@
                         android:layout_marginTop="6dp"
                         android:text="Student ID"
                         android:textSize="15dp"
-
+                        android:textColor="#026C7C"
+                        android:fontFamily="@font/poppins"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -97,7 +101,8 @@
                         android:layout_marginTop="6dp"
                         android:text="Class / Section"
                         android:textSize="15dp"
-
+                        android:textColor="#026C7C"
+                        android:fontFamily="@font/poppins"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -119,24 +124,26 @@
                         app:layout_constraintVertical_bias="0.355">
 
                         <ImageView
-                            android:id="@+id/imageView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            tools:src="@tools:sample/avatars" />
+                            android:layout_width="match_parent"
+                            android:background="@drawable/blueborder"
+                            android:layout_height="match_parent"
+                            android:padding="18dp"
+                            android:src="@drawable/userdp"/>
 
                     </androidx.cardview.widget.CardView>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
-
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:fontFamily="@font/poppins"
                 android:text="admin@example.com"
                 android:textSize="20dp"
+                android:textColor="#026C7C"
                 app:layout_constraintBottom_toTopOf="@+id/textView12"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -150,12 +157,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="Student's Email ID"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
+
+
 
             <TextView
                 android:id="@+id/textView13"
@@ -170,6 +181,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:textColor="#026C7C"
+                android:fontFamily="@font/poppins"
                 app:layout_constraintVertical_bias="0.369" />
 
             <TextView
@@ -177,6 +190,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 android:text="Student's Contact Number"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -193,6 +208,8 @@
                 android:text="dd/mm/yyyy"
                 android:textSize="20dp"
                 android:layout_marginTop="6dp"
+                android:textColor="#026C7C"
+                android:fontFamily="@font/poppins"
                 app:layout_constraintBottom_toTopOf="@+id/textView12"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -206,6 +223,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="Student's DOB"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -218,6 +237,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="yyyy"
+                android:textColor="#026C7C"
+                android:fontFamily="@font/poppins"
                 android:textSize="20dp"
                 android:layout_marginTop="6dp"
                 app:layout_constraintBottom_toTopOf="@+id/textView12"
@@ -234,6 +255,8 @@
                 android:layout_marginLeft="10dp"
                 android:text="Year of Admission"
                 app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -246,7 +269,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="___________________________________________"
-                android:textColor="#00BCD4"
+                android:textColor="#005863"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -260,6 +283,8 @@
                 android:layout_marginLeft="10dp"
                 android:text="X Y Z"
                 android:textSize="20dp"
+                android:textColor="#026C7C"
+                android:fontFamily="@font/poppins"
                 android:layout_marginTop="7dp"
                 app:layout_constraintBottom_toTopOf="@+id/textView12"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -276,6 +301,8 @@
                 android:text="Father's Name"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -287,6 +314,8 @@
                 android:layout_marginLeft="10dp"
                 android:text="A B C"
                 android:textSize="20dp"
+                android:textColor="#026C7C"
+                android:fontFamily="@font/poppins"
                 android:layout_marginTop="6dp"
                 app:layout_constraintBottom_toTopOf="@+id/textView12"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -305,6 +334,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
             <TextView
@@ -314,6 +345,8 @@
                 android:layout_marginLeft="10dp"
                 android:text="0123456789"
                 android:textSize="20dp"
+                android:textColor="#026C7C"
+                android:fontFamily="@font/poppins"
                 android:layout_marginTop="6dp"
                 app:layout_constraintBottom_toTopOf="@+id/textView12"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -332,6 +365,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
             <TextView
@@ -340,6 +375,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="0123456789"
+                android:textColor="#026C7C"
+                android:fontFamily="@font/poppins"
                 android:textSize="20dp"
                 android:layout_marginTop="6dp"
                 app:layout_constraintBottom_toTopOf="@+id/textView12"
@@ -358,6 +395,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
@@ -367,7 +406,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="___________________________________________"
-                android:textColor="#00BCD4"
+                android:textColor="#003C43"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -382,6 +421,8 @@
                 android:text="House no. 100, abc, xyz"
                 android:textSize="20dp"
                 android:layout_marginTop="6dp"
+                android:textColor="#026C7C"
+                android:fontFamily="@font/poppins"
                 app:layout_constraintBottom_toTopOf="@+id/textView12"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -397,6 +438,8 @@
                 android:text="Current Address"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -406,6 +449,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:textColor="#026C7C"
+                android:fontFamily="@font/poppins"
                 android:text="Ghaziabad"
                 android:textSize="20dp"
                 android:layout_marginTop="6dp"
@@ -426,6 +471,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
             <TextView
@@ -433,6 +480,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:textColor="#026C7C"
+                android:fontFamily="@font/poppins"
                 android:text="201206"
                 android:textSize="20dp"
                 android:layout_marginTop="6dp"
@@ -451,6 +500,8 @@
                 android:text="PIN Code"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -467,6 +518,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
+                android:textColor="#026C7C"
+                android:fontFamily="@font/poppins"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.369" />
 
@@ -479,6 +532,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />

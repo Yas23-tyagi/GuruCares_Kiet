@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:textColor="#00BCD4"
+                android:textColor="#01535E"
                 android:layout_marginLeft="5dp"
                 android:text="_________________________________"
                 android:textSize="20dp" />
@@ -30,6 +30,8 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:text="Physics"
@@ -49,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
-                android:textColor="#00BCD4"
+                android:textColor="#01535E"
                 android:layout_marginLeft="5dp"
                 android:text="_________________________________"
                 android:textSize="20dp" />
@@ -60,6 +62,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 android:text="Chemistry"
                 android:textSize="25dp" />
             <ImageButton
@@ -76,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
-                android:textColor="#00BCD4"
+                android:textColor="#01535E"
                 android:layout_marginLeft="5dp"
                 android:text="_________________________________"
                 android:textSize="20dp" />
@@ -85,6 +89,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
+                android:textColor="#01505C"
+                android:fontFamily="@font/poppins_bold"
                 android:layout_marginLeft="15dp"
                 android:text="Mathematics"
                 android:textSize="25dp" />
@@ -102,7 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
-                android:textColor="#00BCD4"
+                android:textColor="#01535E"
                 android:layout_marginLeft="5dp"
                 android:text="_________________________________"
                 android:textSize="20dp" />

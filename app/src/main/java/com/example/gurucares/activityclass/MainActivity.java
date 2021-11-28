@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 t.replace(R.id.fragment, new Attendance());
                 t.commit();
                 homebtn.setImageResource(R.drawable.home);
-                attendancebtn.setImageResource(R.drawable.attendancecolor);
+                attendancebtn.setImageResource(R.drawable.schedule);
                 dashbtn.setImageResource(R.drawable.dashboard);
                 userbtn.setImageResource(R.drawable.user);
             }
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                 homebtn.setImageResource(R.drawable.home);
                 attendancebtn.setImageResource(R.drawable.attendance);
                 dashbtn.setImageResource(R.drawable.dashboard);
-                userbtn.setImageResource(R.drawable.usercolor);
+                userbtn.setImageResource(R.drawable.profilelogo);
             }
         });
 

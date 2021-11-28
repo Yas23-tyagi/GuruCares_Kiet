@@ -3,28 +3,22 @@ package com.example.gurucares.fragmentclass;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gurucares.R;
-import com.example.gurucares.activityclass.mcard;
-import com.example.gurucares.timeTable.MainActivityCalendar;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Dash#newInstance} factory method to
+ * Use the {@link Dmodelview#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Dash extends Fragment {
-    CardView timetable;
-    CardView Bhagwadgeeta;
-    CardView mentorcard;
+public class Dmodelview extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +29,7 @@ public class Dash extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Dash() {
+    public Dmodelview() {
         // Required empty public constructor
     }
 
@@ -45,11 +39,11 @@ public class Dash extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Dash.
+     * @return A new instance of fragment Dmodelview.
      */
     // TODO: Rename and change types and number of parameters
-    public static Dash newInstance(String param1, String param2) {
-        Dash fragment = new Dash();
+    public static Dmodelview newInstance(String param1, String param2) {
+        Dmodelview fragment = new Dmodelview();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -70,40 +64,29 @@ public class Dash extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_dash, container, false);
-        timetable=view.findViewById(R.id.timetable);
-        timetable.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), MainActivityCalendar.class);
-                startActivity(intent);
-            }
-        });
+        View v =  inflater.inflate(R.layout.fragment_dmodelview, container, false);
 
-        Bhagwadgeeta = view.findViewById(R.id.geeta);
-        Bhagwadgeeta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                Fragment myFragment = new GeetaSaar();
-                //myFragment.setArguments(bundle_addsubject);
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment, myFragment).addToBackStack(null).commit();
-            }
-        });
+        TextView enrollglobe = (TextView) v.findViewById(R.id.enrollglobe);
+        TextView enrollsolar = (TextView) v.findViewById(R.id.enrollsolar);
 
-        mentorcard = view.findViewById(R.id.mentorcardbtn);
-        mentorcard.setOnClickListener(new View.OnClickListener() {
+        enrollglobe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(getActivity(), mcard.class);
-                startActivity(i);
+                Intent launchIntent = getActivity().getPackageManager().getLaunchIntentForPackage("com.unity.solarsystem_unity");
+                if (launchIntent != null) {
+                    startActivity(launchIntent);//null pointer check in case package name was not found
+                }
+                else
+                {
+                    Toast.makeText(getContext(), "Null package name", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
 
 
-        return view;
+        return v;
     }
 
 }

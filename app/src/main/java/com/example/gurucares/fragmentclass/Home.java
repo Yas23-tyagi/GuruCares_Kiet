@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -122,6 +123,18 @@ public class Home extends Fragment {
         TextView headerbutton  = v.findViewById(R.id.headerbutton);
 
 
+        LinearLayout viewmodel = (LinearLayout) v.findViewById(R.id.dviewmodel);
+        viewmodel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                Fragment myFragment = new Dmodelview();
+                //myFragment.setArguments(bundle_addsubject);
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment, myFragment).addToBackStack(null).commit();
+
+
+            }
+        });
 
 
         if(studentcode.equals("100"))

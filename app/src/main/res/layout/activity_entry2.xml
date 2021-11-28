@@ -141,9 +141,9 @@
         android:layout_alignParentBottom="true"/>
 
     <ImageView
-        android:layout_width="100dp"
+        android:layout_width="70dp"
         android:layout_height="60dp"
-        android:padding="10dp"
+        android:padding="15dp"
         android:id="@+id/backbtn"
         android:src="@drawable/back"
         android:layout_alignParentLeft="true"

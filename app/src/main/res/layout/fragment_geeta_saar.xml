@@ -10,7 +10,22 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#edf0f5">
+        android:background="#ffffff">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/back"
+            android:padding="17dp"
+            android:layout_weight="5"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,15 +38,18 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Shrimad Bhagwat Geeta"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:text="Shrimad Bhagavad Gita"
                 android:shadowColor="#F0F5F8"
+                android:layout_marginTop="10dp"
                 android:shadowRadius="2"
                 android:textColor="#02335A"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textAlignment="center"
                 android:gravity="center" />
 
@@ -89,8 +107,8 @@
             android:layout_weight="4.2"/>
 
     </LinearLayout>
+
+</RelativeLayout>
+
     </ScrollView>
-
-
-
 </FrameLayout>

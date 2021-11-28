@@ -14,18 +14,20 @@ import com.example.gurucares.fragmentclass.ProfileInfo;
 import com.example.gurucares.fragmentclass.Studentid;
 
 public class mcard extends AppCompatActivity {
-Button btn1, btn2,btn3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        btn1=findViewById(R.id.btn1);
-        btn2=findViewById(R.id.btn2);
-        btn3=findViewById(R.id.btn3);
+        setContentView(R.layout.activity_mcard);
+
+        Button btn1= (Button) findViewById(R.id.btn1);
+        Button btn2=(Button) findViewById(R.id.btn2);
+        Button btn3= (Button) findViewById(R.id.btn3);
         FragmentManager manager=getSupportFragmentManager();
         FragmentTransaction transaction=manager.beginTransaction();
         transaction.replace(R.id.Frame1, new Studentid());
         transaction.commit();
+
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,6 +38,7 @@ Button btn1, btn2,btn3;
                 transaction.commit();
             }
         });
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

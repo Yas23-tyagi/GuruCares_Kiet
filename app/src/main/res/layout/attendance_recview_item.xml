@@ -7,7 +7,7 @@
     <com.app.progresviews.ProgressWheel
         android:id="@+id/recview_item_wheelprogress"
         android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_height="120dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -20,7 +20,7 @@
         app:defTextSize="10sp"
         app:marginBtwText="15dp"
         app:percentage="180"
-        app:progressColor="#64b324" />
+        app:progressColor="#00BFA5" />
 
     <TextView
         android:id="@+id/attendance_recview_text"
