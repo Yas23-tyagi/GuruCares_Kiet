@@ -1,6 +1,7 @@
 package com.example.gurucares.fragmentclass;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -116,13 +119,20 @@ public class Home extends Fragment {
         String studentcode = username.substring(0,3);
         String gradecode = username.substring(3,5).toString();
         String sectioncode = username.substring(5,7);
+        ImageView toogle=v.findViewById(R.id.toogle);
 
         ImageView addtask = v.findViewById(R.id.addtask);
         ImageView addsubject = v.findViewById(R.id.addsubject);
         TextView header = v.findViewById(R.id.header);
         TextView headerbutton  = v.findViewById(R.id.headerbutton);
 
-
+        DrawerLayout dr=getActivity().findViewById(R.id.drawerlayout);
+        toogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dr.openDrawer(GravityCompat.START);
+            }
+        });
         LinearLayout viewmodel = (LinearLayout) v.findViewById(R.id.dviewmodel);
         viewmodel.setOnClickListener(new View.OnClickListener() {
             @Override
